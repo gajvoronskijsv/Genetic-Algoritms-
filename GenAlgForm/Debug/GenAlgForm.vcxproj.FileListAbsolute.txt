@@ -1,0 +1,3 @@
+C:\Users\Neocortex\source\repos\GenAlgForm\GenAlgForm\Debug\GenAlgForm.vcxprojAssemblyReference.cache
+C:\Users\Neocortex\source\repos\GenAlgForm\GenAlgForm\Debug\GenAlgForm.MyForm.resources
+C:\Users\Neocortex\source\repos\GenAlgForm\GenAlgForm\Debug\GenAlgForm.vcxproj.GenerateResource.cache
