@@ -17,6 +17,7 @@ void main(array<String^>^ args) {
 }
 
 std::string *out=new std::string("");
+std::string *ans = new std::string("");
 
 // фенотип хромосомы а, то есть расшифровка решени€, представл€емого хромосомой а
 int GenAlgForm::MyForm::ft(bool* a) {
@@ -56,14 +57,14 @@ void GenAlgForm::MyForm::quickSort(bool** a, int low, int high)
             (*j)--;
         }
     }
+    delete pivot;
+    delete[] temp;
     if (*j > low)
         quickSort(a, low, *j);
     if (*i < high)
         quickSort(a, *i, high);
     delete i;
     delete j;
-    delete pivot;
-    delete[] temp;
 }
 
 //Ёлитна€ селекци€. ¬ качестве функции приспособленности € использую целевую функцию.
@@ -82,8 +83,8 @@ void GenAlgForm::MyForm::eliteSelection(bool** a, int *popNum, int *maxCros, int
     }
     if (*numFit) *avrFit /= *numFit;
     else return;
-    *out += "Ёлитна€ селекци€. —редн€€ преспособленность текущей попул€ции: " + std::to_string(*avrFit) + "\r\n";
-    //определ€ем число "лучших" хромосом, преспособленность которых будет выше средней.
+    *out += "Ёлитна€ селекци€. —редн€€ приспособленность текущей попул€ции: " + std::to_string(*avrFit) + "\r\n";
+    //определ€ем число "лучших" хромосом, приспособленность которых будет выше средней.
     //так как € ищу минимум это означает, что значение целевой функции хромосомы должно быть меньше либо равно среднему значению
     int* trueCros = new int(0);
     while (*trueCros < *maxCros && tf(ft(a[*trueCros])) <= (int)(*avrFit)) ++(*trueCros);
@@ -507,14 +508,17 @@ System::Void GenAlgForm::MyForm::StartGeneticAlgorithm_Click(System::Object^ sen
         }
     }
     //вывод ответа:
-    if (numFit) *out += "\r\n ќтвет: " + std::to_string(ft(pop[0]));
-    else *out += "\r\n ѕопул€ци€ вымерла, ответ не найден.";
+    if (numFit) *ans = " ќптимальное решение: " + std::to_string(ft(pop[0])) + "\r\n «начение функции: "+ std::to_string(tf(ft(pop[0])));
+    else *ans = "\r\n ѕопул€ци€ вымерла, ответ не найден.";
     //чистка
     for (int i = 0; i < popNum + maxCros + mutNum; ++i) {
         delete[] pop[i];
     }
     delete[] pop;
     delete FORMcout->Text;
+    delete FORMans->Text;
     FORMcout->Text = gcnew String(out->c_str());
+    FORMans->Text = gcnew String(ans->c_str());
     *out = "";
+    *ans = "";
 }

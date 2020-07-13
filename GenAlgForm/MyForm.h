@@ -98,6 +98,8 @@ namespace GenAlgForm {
 	private:
 
 	private: System::Windows::Forms::Button^ StartGeneticAlgorithm;
+	private: System::Windows::Forms::TextBox^ FORMans;
+	private: System::Windows::Forms::Label^ label5;
 
 
 
@@ -149,6 +151,8 @@ namespace GenAlgForm {
 			this->FORMmutProb = (gcnew System::Windows::Forms::NumericUpDown());
 			this->FORMcout = (gcnew System::Windows::Forms::TextBox());
 			this->StartGeneticAlgorithm = (gcnew System::Windows::Forms::Button());
+			this->FORMans = (gcnew System::Windows::Forms::TextBox());
+			this->label5 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->FORMpopNum))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->FORMgenNum))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->FORMrange))->BeginInit();
@@ -409,12 +413,12 @@ namespace GenAlgForm {
 			this->FORMcout->Name = L"FORMcout";
 			this->FORMcout->ReadOnly = true;
 			this->FORMcout->ScrollBars = System::Windows::Forms::ScrollBars::Both;
-			this->FORMcout->Size = System::Drawing::Size(688, 504);
+			this->FORMcout->Size = System::Drawing::Size(698, 457);
 			this->FORMcout->TabIndex = 23;
 			// 
 			// StartGeneticAlgorithm
 			// 
-			this->StartGeneticAlgorithm->Location = System::Drawing::Point(447, 545);
+			this->StartGeneticAlgorithm->Location = System::Drawing::Point(316, 526);
 			this->StartGeneticAlgorithm->Name = L"StartGeneticAlgorithm";
 			this->StartGeneticAlgorithm->Size = System::Drawing::Size(401, 30);
 			this->StartGeneticAlgorithm->TabIndex = 24;
@@ -422,11 +426,30 @@ namespace GenAlgForm {
 			this->StartGeneticAlgorithm->UseVisualStyleBackColor = true;
 			this->StartGeneticAlgorithm->Click += gcnew System::EventHandler(this, &MyForm::StartGeneticAlgorithm_Click);
 			// 
+			// FORMans
+			// 
+			this->FORMans->Location = System::Drawing::Point(748, 519);
+			this->FORMans->Multiline = true;
+			this->FORMans->Name = L"FORMans";
+			this->FORMans->Size = System::Drawing::Size(231, 44);
+			this->FORMans->TabIndex = 25;
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(745, 503);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(40, 13);
+			this->label5->TabIndex = 26;
+			this->label5->Text = L"Ответ:";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1010, 600);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->FORMans);
 			this->Controls->Add(this->StartGeneticAlgorithm);
 			this->Controls->Add(this->FORMcout);
 			this->Controls->Add(this->FORMmutProb);
